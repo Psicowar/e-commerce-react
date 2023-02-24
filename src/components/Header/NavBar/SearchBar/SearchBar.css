@@ -1,0 +1,10 @@
+.header__searchbar {
+    display: flex;
+  }
+  
+  .header__searchbar-inputs {
+    min-height: 100%;
+    font-size: 1.5rem;
+  }
+  
+  

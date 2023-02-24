@@ -1,0 +1,38 @@
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 4) ; 
+    background: rgba(255, 255, 255, 0.1) ;
+    margin-top: 0.2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.5)
+    
+}
+
+section > div {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    border-radius: 1rem;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 4) ; 
+    background: rgba(255, 255, 255, 0.1) ;
+    backdrop-filter: blur(5px) ;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+    border-right: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.cart__component-box {
+    padding: 1rem;
+    
+}
+
+.cart__component-box h6 {
+    font-size: 1.4rem;
+    margin: 0;
+    
+}
