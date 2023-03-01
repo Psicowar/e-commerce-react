@@ -14,22 +14,21 @@ import Swal from "sweetalert2";
 
 const WishContainer = ({ status }) => {
 	const { wishList, setWishList } = useWishListContext()
-	const [wishes, setWishes] = useState([]);
 	const [text, setText] = useState('')
 
 
-	const addWish = (text) => {
-		const newWish = {
-			id: uuidv4(),
-			text,
-			done: false,
-			isEditing: false,
-			status: "active"
-		}
-		const handleNewWish = [newWish, ...wishes];
-		setWishes(handleNewWish)
-		setWishes('')
-	}
+	// const addWish = (text) => {
+	// 	const newWish = {
+	// 		id: uuidv4(),
+	// 		text,
+	// 		done: false,
+	// 		isEditing: false,
+	// 		status: "active"
+	// 	}
+	// 	const handleNewWish = [newWish, ...wishes];
+	// 	setWishes(handleNewWish)
+	// 	setWishes('')
+	// }
 
 
 
@@ -37,10 +36,12 @@ const WishContainer = ({ status }) => {
 		localStorage.setItem('WishList', JSON.stringify(wishList))
 	}, [wishList])
 
+	
 	const handleSetDeleteWish = (id) => {
 		const updatedWishList = wishList.filter(item => item.id !== id)
 		setWishList(updatedWishList)
 	}
+
 
 
 	const handleWish = (e) => {
@@ -67,8 +68,6 @@ const WishContainer = ({ status }) => {
 			localStorage.setItem('WishList', JSON.stringify(localStorageWish))
 			setText('')
 		}
-
-
 	}
 
 
@@ -114,7 +113,7 @@ const WishContainer = ({ status }) => {
 	}
 
 
-	const triggerEditModal = async (id) => {
+	const handleEditModal = async (id) => {
 		const currentWish = wishList.find((item) => item.id === id)
 		const { value } = await Swal.fire({
 			title: 'Edit task',
@@ -185,7 +184,7 @@ const WishContainer = ({ status }) => {
 				<WishList
 					status={status}
 					handleSetDeleteWish={handleSetDeleteWish}
-					triggerEditModal={triggerEditModal}
+					handleEditModal={handleEditModal}
 				/>
 			</div>
 		</div>

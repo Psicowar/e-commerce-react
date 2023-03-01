@@ -1,9 +1,9 @@
 import React from 'react'
 import WishContainer from '../components/WishContainer/WishContainer'
 
-const AllWishesPage = () => {
+const AllWishesPage = ({status}) => {
   return (
-    <WishContainer />
+    <WishContainer status={status} />
   )
 }
 

@@ -5,7 +5,7 @@ import "./Wish.css";
 import { useWishListContext } from "../../context/WishListProvider.jsx";
 
 
-const Wish = ({ wish, handleSetDeleteWish, handleSetOverWrite, triggerEditModal }) => {
+const Wish = ({ wish, handleSetDeleteWish, handleEditModal }) => {
 
 
 	const { wishList, setWishList } = useWishListContext()
@@ -59,7 +59,7 @@ const Wish = ({ wish, handleSetDeleteWish, handleSetOverWrite, triggerEditModal 
 				<p className={"m-0 p-2 text-secondary w-100 " + (wish.done && "text-decoration-line-through")}>
 					{wish.text}
 				</p>
-				<img onClick={() => triggerEditModal(wish.id)} className="edit__icon m-2" src={editSVG} alt="Edit icon" />
+				<img onClick={() => handleEditModal(wish.id)} className="edit__icon m-2" src={editSVG} alt="Edit icon" />
 				<img onClick={() => handleSetDeleteWish(wish.id)} className="close__icon m-2" src={closeSVG} alt="Close icon" />
 			</div>
 		</div>

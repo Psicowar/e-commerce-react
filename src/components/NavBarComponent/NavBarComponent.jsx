@@ -10,9 +10,6 @@ const NavBarComponent = () => {
 				</button>
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-						<li className="nav-item ">
-							<NavLink to="/"><p className='nav-link m-0 home__btn'>Home</p></NavLink>
-						</li>
 						<li className="nav-item dropdown d-flex justify-content-center align-items-center p-2">
 							<p className="nav-link dropdown-toggle m-0" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Wishes List

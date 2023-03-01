@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import NavBarComponent from "../components/NavBarComponent/NavBarComponent.jsx"
-import WishPage from "../Pages/WishPage"
+import AllWishesPage from "../Pages/AllWishesPage.jsx"
+import CompletedWishesPage from "../Pages/CompletedWishesPage.jsx"
+import ActiveWishesPage from "../Pages/ActiveWishesPage.jsx" 
 
 
 
@@ -10,9 +12,9 @@ const RouterPath = () => {
       <BrowserRouter>
         <NavBarComponent />
         <Routes>
-          <Route path="/wishes/all" element={<WishPage status='all' />} />
-          <Route path="/wishes/active" element={<WishPage status='active' />} />
-          <Route path="/wishes/completed" element={<WishPage status='completed' />} />
+          <Route path="/wishes/all" element={<AllWishesPage status='all' />} />
+          <Route path="/wishes/active" element={<ActiveWishesPage status='active' />} />
+          <Route path="/wishes/completed" element={<CompletedWishesPage status='completed' />} />
         </Routes>
       </BrowserRouter>
     </>

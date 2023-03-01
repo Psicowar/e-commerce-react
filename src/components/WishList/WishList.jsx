@@ -4,7 +4,7 @@ import "./WishList.css"
 import { useEffect, useState } from "react";
 import { useWishListContext } from "../../context/WishListProvider.jsx";
 
-const WishList = ({ status, handleSetDeleteWish, handleSetOverWrite, triggerEditModal }) => {
+const WishList = ({ status, handleSetDeleteWish, handleSetOverWrite, handleEditModal }) => {
 
 	const { wishList } = useWishListContext()
 
@@ -48,7 +48,7 @@ const WishList = ({ status, handleSetDeleteWish, handleSetOverWrite, triggerEdit
 									wish={wish}
 									handleSetDeleteWish={handleSetDeleteWish}
 									handleSetOverWrite={handleSetOverWrite}
-									triggerEditModal={triggerEditModal}
+									handleEditModal={handleEditModal}
 								/>
 							</li>
 						)
