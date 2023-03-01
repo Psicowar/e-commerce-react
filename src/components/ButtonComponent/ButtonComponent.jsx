@@ -1,13 +1,13 @@
 import React from 'react'
 
-const ListButton = ({liNames}) => {
+const ListButton = ({ liNames }) => {
     return (
         <li className='text-secondary m-0 center-text m-2'>
-            {liNames} 
+            {liNames}
         </li>
     )
-        
-    
+
+
 }
 
-export {  ListButton }
+export { ListButton }

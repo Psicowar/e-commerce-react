@@ -8,11 +8,11 @@ const RouterPath = () => {
   return (
     <>
       <BrowserRouter>
-        <NavBarComponent/>
+        <NavBarComponent />
         <Routes>
-          <Route path="/wishes/all"  element={<WishPage status='all'/>}/>
-          <Route path="/wishes/active" element={<WishPage status='active'/>}/>
-          <Route path="/wishes/completed" element={<WishPage status='completed'/>}/>
+          <Route path="/wishes/all" element={<WishPage status='all' />} />
+          <Route path="/wishes/active" element={<WishPage status='active' />} />
+          <Route path="/wishes/completed" element={<WishPage status='completed' />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import closeSVG from "../../assets/imgs/close.icon.svg";
 import editSVG from "../../assets/imgs/edit.icon.svg";
 import "./Wish.css";
-import { useWishListContext } from "../../context/WishListProvider.jsx.jsx";
+import { useWishListContext } from "../../context/WishListProvider.jsx";
 
 
-const Wish = ({ wish, handleSetDeleteWish, handleSetOverWrite }) => {
+const Wish = ({ wish, handleSetDeleteWish, handleSetOverWrite, triggerEditModal }) => {
 
 
 	const { wishList, setWishList } = useWishListContext()
@@ -15,15 +15,14 @@ const Wish = ({ wish, handleSetDeleteWish, handleSetOverWrite }) => {
 	const [isCheck, setIsCheck] = useState(false)
 
 	useEffect(() => {
-		setChangeStatus(wish.status==="completed"?"active":"completed")
-	
+		setChangeStatus(wish.status === "completed" ? "active" : "completed")
 	}, [wish])
 
 	const handleOnChange = () => {
-		
+
 		if (wish.status = changeStatus) {
 			let newElement = [...wishList]
-			wishList && wishList.map((item, key) => {
+			wishList && wishList.forEach((item, key) => {
 				if (item.id === wish.id) {
 					newElement[key].status = changeStatus;
 					newElement[key].done = !wish.done;
@@ -34,9 +33,9 @@ const Wish = ({ wish, handleSetDeleteWish, handleSetOverWrite }) => {
 			setChangeStatus('active')
 			localStorage.setItem('WishList', JSON.stringify(wishList))
 			return
-		} else if(	wish.status = changeStatus ) {
+		} else if (wish.status = changeStatus) {
 			let newElement = [...wishList]
-			wishList && wishList.map((item, key) => {
+			wishList && wishList.forEach((item, key) => {
 				if (item.id === wish.id) {
 					newElement[key].status = changeStatus;
 					newElement[key].done = wish.done
@@ -48,11 +47,10 @@ const Wish = ({ wish, handleSetDeleteWish, handleSetOverWrite }) => {
 			localStorage.setItem('WishList', JSON.stringify(wishList))
 			return
 		}
-		
 	}
 
 
-	
+
 	return (
 
 		<div className="d-flex align-items-center justify-content-between">
@@ -61,7 +59,7 @@ const Wish = ({ wish, handleSetDeleteWish, handleSetOverWrite }) => {
 				<p className={"m-0 p-2 text-secondary w-100 " + (wish.done && "text-decoration-line-through")}>
 					{wish.text}
 				</p>
-				<img onClick={() => handleSetOverWrite(wish.id)} className="edit__icon m-2" src={editSVG} alt="Edit icon" />
+				<img onClick={() => triggerEditModal(wish.id)} className="edit__icon m-2" src={editSVG} alt="Edit icon" />
 				<img onClick={() => handleSetDeleteWish(wish.id)} className="close__icon m-2" src={closeSVG} alt="Close icon" />
 			</div>
 		</div>

@@ -3,7 +3,7 @@ import WishContainer from '../components/WishContainer/WishContainer'
 
 const CompletedWishesPage = () => {
   return (
-    <WishContainer/>
+    <WishContainer />
   )
 }
 

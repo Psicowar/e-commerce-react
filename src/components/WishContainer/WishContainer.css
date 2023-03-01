@@ -5,3 +5,22 @@
     border-radius: 5px;
     color: #212529;
 }
+
+.dropdown-menu-filters {
+    width: 130px;
+    padding-left: 0.5rem;
+    height: 110px;
+}
+
+
+.input__wish {
+    outline: none;
+    background-color: #6c757d;
+    border-radius: 5px;
+
+}
+
+.input__wish::-webkit-input-placeholder {
+    color: #212529;
+    
+}

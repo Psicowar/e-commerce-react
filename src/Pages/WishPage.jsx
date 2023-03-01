@@ -1,10 +1,10 @@
 import WishContainer from "../components/WishContainer/WishContainer";
 
 
-const WishPage = ({status}) => {
+const WishPage = ({ status }) => {
 
   return (
-    <WishContainer status={status}/>
+    <WishContainer status={status} />
   )
 }
 

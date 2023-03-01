@@ -3,14 +3,14 @@ import { useState } from "react";
 
 export const WishListContext = createContext(null)
 
-const WishListProvider = ({children}) => {
+const WishListProvider = ({ children }) => {
 	const getDataLocalStorage = localStorage.getItem('WishList')
 	const [wishList, setWishList] = useState(
 		getDataLocalStorage ? JSON.parse(getDataLocalStorage) : []
 	)
 
 	return (
-		<WishListContext.Provider value={{wishList, setWishList}}>
+		<WishListContext.Provider value={{ wishList, setWishList }}>
 			{children}
 		</WishListContext.Provider>
 	)
@@ -19,7 +19,7 @@ const WishListProvider = ({children}) => {
 
 export const useWishListContext = () => {
 	const context = useContext(WishListContext)
-	if(!context) {
+	if (!context) {
 		throw new Error('Error provider')
 	}
 	return context

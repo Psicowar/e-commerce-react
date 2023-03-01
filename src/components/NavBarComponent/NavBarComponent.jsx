@@ -11,16 +11,16 @@ const NavBarComponent = () => {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
 						<li className="nav-item ">
-							<NavLink to="/"><p className='nav-link m-0 s'>Home</p></NavLink>
+							<NavLink to="/"><p className='nav-link m-0 home__btn'>Home</p></NavLink>
 						</li>
-						<li className="nav-item dropdown ">
+						<li className="nav-item dropdown d-flex justify-content-center align-items-center p-2">
 							<p className="nav-link dropdown-toggle m-0" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Wishes List
 							</p>
 							<ul className="dropdown-menu bg-secondary">
-								<NavLink to="/wishes/all"><li><p className="dropdown-item m-0">All</p></li></NavLink>
-								<NavLink to="/wishes/active"><li><p className="dropdown-item m-0">Active</p></li></NavLink>
-								<NavLink to="/wishes/completed"><li><p className="dropdown-item m-0">Completed</p></li></NavLink>
+								<NavLink to="/wishes/all"><li className="dropdown-item m-0">All</li></NavLink>
+								<NavLink to="/wishes/active"><li className="dropdown-item m-0">Active</li></NavLink>
+								<NavLink to="/wishes/completed"><li className="dropdown-item m-0">Completed</li></NavLink>
 							</ul>
 						</li>
 					</ul>
