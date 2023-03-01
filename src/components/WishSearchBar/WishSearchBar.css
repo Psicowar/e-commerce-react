@@ -1,0 +1,11 @@
+.input__wish {
+    outline: none;
+    background-color: #6c757d;
+    border-radius: 5px;
+
+}
+
+.input__wish::-webkit-input-placeholder {
+    color: #212529;
+    
+}

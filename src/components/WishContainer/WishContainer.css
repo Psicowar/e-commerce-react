@@ -1,0 +1,7 @@
+.delete__completed:hover {
+    background-color: #892716;
+    border: 1px solid #6c757d;
+    transform: scale(1.05);
+    border-radius: 5px;
+    color: #212529;
+}
