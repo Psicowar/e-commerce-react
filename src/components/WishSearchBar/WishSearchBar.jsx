@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import "./WishSearchBar.css";
-import { useWishListContext } from "../../context/WishListProvider/WishListProvider.jsx";
+import { useWishListContext } from "../../context/WishListProvider.jsx.jsx";
 import { v4 as uuidv4 } from 'uuid';
 
 const WishSearchBar = () => {

@@ -2,12 +2,12 @@ import WishList from "../WishList/WishList.jsx";
 import WishSearchBar from "../WishSearchBar/WishSearchBar.jsx";
 import CountAllWishes from "../CountAllWishes/CountAllWishes.jsx";
 
-import { ListButton } from "../WishFilters/WishesFiltersComponents.jsx";
+import { ListButton } from "../ButtonComponent/ButtonComponent.jsx";
 
 import { NavLink } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from "react";
-import { useWishListContext } from "../../context/WishListProvider/WishListProvider.jsx.jsx";
+import { useWishListContext } from "../../context/WishListProvider.jsx.jsx";
 import "./WishContainer.css"
 import Swal from "sweetalert2";
 
@@ -43,7 +43,7 @@ const WishContainer = ({ status }) => {
 	useEffect(() => {
 		localStorage.setItem('WishList', JSON.stringify(wishList))
 	}, [wishList])
-	
+
 	const handleSetDeleteWish = (id) => {
 		const updatedWishList = wishList.filter(item => item.id !== id)
 		setWishList(updatedWishList)
@@ -121,7 +121,7 @@ const WishContainer = ({ status }) => {
 				<WishList
 					status={status}
 
-					handleSetDelete={handleSetDeleteWish}
+					handleSetDeleteWish={handleSetDeleteWish}
 					handleSetOverWrite={handleSetOverWrite}
 				/>
 

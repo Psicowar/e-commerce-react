@@ -1,5 +1,4 @@
-import './App.css';
-import WishListProvider from './context/WishListProvider/WishListProvider.jsx';
+import WishListProvider from './context/WishListProvider.jsx';
 import RouterPath from './Routes/Router';
 
 function App() {

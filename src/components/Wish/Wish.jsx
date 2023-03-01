@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import closeSVG from "../../assets/imgs/close.icon.svg";
 import editSVG from "../../assets/imgs/edit.icon.svg";
 import "./Wish.css";
-import { useWishListContext } from "../../context/WishListProvider/WishListProvider.jsx";
+import { useWishListContext } from "../../context/WishListProvider.jsx.jsx";
 
 
 const Wish = ({ wish, handleSetDeleteWish, handleSetOverWrite }) => {

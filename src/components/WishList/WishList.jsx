@@ -3,11 +3,11 @@ import emptyList from "../../assets/imgs/diary.ilustration.svg"
 import "./WishList.css"
 import { useEffect, useState } from "react";
 import WishSearchBar from "../WishSearchBar/WishSearchBar";
-import { useWishListContext } from "../../context/WishListProvider/WishListProvider.jsx";
+import { useWishListContext } from "../../context/WishListProvider.jsx.jsx";
 
-const WishList = ({ status ,wishes, handleSetComplete, handleSetDeleteWish, handleSetOverWrite }) => {
+const WishList = ({ status , handleSetComplete, handleSetDeleteWish, handleSetOverWrite }) => {
 
-	const {wishList, setWishList} = useWishListContext()
+	const {wishList} = useWishListContext()
 	console.log(wishList);
 
 	const [filterList, setFilterList] = useState(undefined)
@@ -63,7 +63,7 @@ const WishList = ({ status ,wishes, handleSetComplete, handleSetDeleteWish, hand
 										key={wish.id}
 										wish={wish}
 										handleSetComplete={handleSetComplete}
-										handleSetDelete={handleSetDeleteWish}
+										handleSetDeleteWish={handleSetDeleteWish}
 										handleSetOverWrite={handleSetOverWrite}
 									/>
 								</li>

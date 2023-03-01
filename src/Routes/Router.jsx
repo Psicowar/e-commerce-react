@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import NavBarComponent from "../components/NavBarComponent/NavBarComponent.jsx"
-import HomePage from "../Pages/HomePage"
 import WishPage from "../Pages/WishPage"
 
 

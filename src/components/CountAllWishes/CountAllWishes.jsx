@@ -1,4 +1,4 @@
-import { useWishListContext } from "../../context/WishListProvider/WishListProvider.jsx";
+import { useWishListContext } from "../../context/WishListProvider.jsx.jsx";
 
 const CountAllWishes = () => {
     const {wishList} = useWishListContext()
