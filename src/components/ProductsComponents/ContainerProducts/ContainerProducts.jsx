@@ -22,6 +22,8 @@ export const ContainerItem = () => {
 					type="text"
 					value={searchValue}
 					onChange={(e) => setSearchValue(e.target.value)}
+					placeholder='Look for skins...'
+
 				/>
 			</div>
 			{isLoading ? (

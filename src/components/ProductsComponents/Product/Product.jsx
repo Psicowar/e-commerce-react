@@ -43,21 +43,18 @@ export const Product = ({ id, img, title, actualPrice, previousPrice }) => {
 			}
 		})
 	};
-
+	
+	const json = JSON.stringify(cart)
+	localStorage.setItem("cartItems", json)
 
 	const getProductsById = (id) => {
 		return cart.find((item) => item.id === id)?.quantity || 0;
 	};
 
+
+
 	const quantityPerItem = getProductsById(id)
 
-
-	// const [mainImg, setMainImg] = useState(img[0])
-	// const handleClick = (index) => {
-	// 	const slider = img[index];
-	// 	setMainImg(slider)
-	// }
-	
 	return (
 
 		<Tilt className="tilt__container" key={id}>
@@ -65,7 +62,7 @@ export const Product = ({ id, img, title, actualPrice, previousPrice }) => {
 				<p className="discount">- {(100 / (previousPrice / discount)).toFixed(2)}%</p>
 
 				<div>
-					<img key={uuidv4()} className="tilt__container-img" src={require(`../../../assets/imgs/${img}`)} alt={title} />
+					<img className="tilt__container-img" src={require(`../../../assets/imgs/${img}`)} alt={title} />
 				</div>
 
 				<div className="card-body w-100">
