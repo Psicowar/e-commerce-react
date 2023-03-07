@@ -4,15 +4,15 @@ import "./CartProducts.css"
 
 
 export const CartProducts = () => {
-	const [cart, setCart] = useContext(CartContext);
-
+	const [cart] = useContext(CartContext);
+	console.log(cart)
 	const totalProducts = cart.reduce((accumulator, currentProduct) => {
 		return accumulator + currentProduct.quantity;
 	}, 0)
 
 
 	const totalPrice = cart.reduce((accumulator, currentProduct) => {
-		return accumulator + currentProduct.quantity * currentProduct.price;
+		return accumulator + currentProduct.quantity * currentProduct.actualPrice;
 	}, 0)
 
 	
@@ -20,13 +20,14 @@ export const CartProducts = () => {
 	return (
 
 		<>
-			{cart.map((item) => {
-				console.log(item)
+			{cart && cart.map((item) => {
 				return (
+					
 					<div className="cart__box" key={item.id}>
-						<img src={item.img} alt={item.title} />
+						<img src={require(`../../../assets/imgs/${item.img}`)} alt={item.title}/>
 						<p>{item.title}</p>
-						<p>Price: {item.price}€</p>
+						<p>Price: {item.actualPrice}€</p>
+						<p>x</p>
 					</div>
 
 				)

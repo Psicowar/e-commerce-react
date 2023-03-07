@@ -8,13 +8,13 @@ import { CartContext } from "../../../context/ShoppingCartContex/ShoppingCartCon
 
 const Cart = () => {
 
-	const [cart, setCart] = useContext(CartContext);
+	const [cart] = useContext(CartContext);
 
 	const totalProducts = cart.reduce((accumulator, currentProduct) => {
 		return accumulator + currentProduct.quantity;
 	}, 0)
 
-
+	
 	return (
 
 		<div className="cart__logo">

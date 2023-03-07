@@ -8,6 +8,7 @@ import LoginUser from './components/LoginUser/LoginUser';
 import Logo from './components/Header/Logo/Logo';
 import CartPath from './pages/CartPath';
 import { ShoppingCartProvider } from './context/ShoppingCartContex/ShoppingCartContext';
+import SearchPage from './pages/SearchPage';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/products' element={<Products />} />
           <Route path='/login' element={<LoginUser />} />
           <Route path='/cart' element={<CartPath />} />
+          <Route path="/search" element={<SearchPage />} />
           <Route path='*' element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

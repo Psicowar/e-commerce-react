@@ -1,0 +1,125 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Ak-47 | Head Shoot",
+            "previousPrice": 403,
+            "actualPrice": 300,
+            "img": "img_1.jpg"
+        },
+        {
+            "id": 2,
+            "title": "M4a4 | Temukau",
+            "previousPrice": 321,
+            "actualPrice": 250,
+            "img": "img_2.jpg"
+        },
+        {
+            "id": 3,
+            "title": "P2000 | Wicked Sick",
+            "previousPrice": 102,
+            "actualPrice": 90,
+            "img": "img_3.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Ak-47 | Head Shoot",
+            "previousPrice": 78.1,
+            "actualPrice": 66.3,
+            "img":"img_4.jpg" 
+
+        },
+        {
+            "id": 5,
+            "title": "Glock-18 | Umbral Hare",
+            "previousPrice": 93,
+            "actualPrice": 82,
+            "img": "img_5.jpg" 
+        },
+        {
+            "id": 6,
+            "title": "MAC-10 | Sakkaku",
+            "previousPrice": 12.7,
+            "actualPrice": 9,
+            "img": "img_6.jpg" 
+        },
+        {
+            "id": 7,
+            "title": "M4A41-S | Feeding Frenzy",
+            "previousPrice": 13.4,
+            "actualPrice": 11,
+            "img":"img_7.jpg" 
+        },
+        {
+            "id": 8,
+            "title": "R8 Revolver | Banana Cannon",
+            "previousPrice": 7.20,
+            "actualPrice": 5,
+            "img": "img_8.jpg"
+        },
+        {
+            "id": 9,
+            "title": "P90| Neoqueen",
+            "previousPrice": 9.20,
+            "actualPrice": 7,
+            "img": "img_9.jpg"
+        },
+        {
+            "id": 10,
+            "title": "MAG-7 | Insomnia",
+            "previousPrice": 0.92,
+            "actualPrice": 0.60,
+            "img":"img_10.jpg"
+        },
+        {
+            "id": 11,
+            "title": "MP5-SD | Liquidation",
+            "previousPrice": 0.65,
+            "actualPrice": 0.32,
+            "img": "img_11.jpg"
+        },
+        {
+            "id": 12,
+            "title": "MP9 | Featherweigth",
+            "previousPrice": 0.81,
+            "actualPrice": 0.67,
+            "img": "img_12.jpg"
+        },
+        {
+            "id": 13,
+            "title": "P50 | Re.built",
+            "previousPrice": 0.70,
+            "actualPrice": 0.53,
+            "img": "img_13.jpg"
+        },
+        {
+            "id": 14,
+            "title": "SCAR-20 | Fragments",
+            "previousPrice": 0.60,
+            "actualPrice": 0.44,
+            "img": "img_14.jpg"
+            
+        },
+        {
+            "id": 15,
+            "title": "SG553 | Cyberforce",
+            "previousPrice": 0.15,
+            "actualPrice": 0.09,
+            "img": "img_15.jpg"
+        },
+        {
+            "id": 16,
+            "title": "Tec-9 | Rebel",
+            "previousPrice": 0.30,
+            "actualPrice": 0.21,
+            "img": "img_16.jpg"
+        },
+        {
+            "id": 17,
+            "title": "UMP-45 | Wild Child",
+            "previousPrice": 0.30,
+            "actualPrice": 0.21,
+            "img": "img_17.jpg"
+        }
+    ]
+}

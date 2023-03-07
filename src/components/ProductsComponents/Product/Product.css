@@ -10,7 +10,6 @@
     backdrop-filter: blur(5px) !important;
     padding: 0 !important;
     background: none !important;
-    
   }
 
 
@@ -25,7 +24,6 @@
   }
   
   .tilt__container-img {
-    margin: 1rem;
     transform: translateZ(25px) ;
     width: 100%;
   }
@@ -41,4 +39,48 @@
 
  .card-data {
   text-align: center;
+  
+ }
+
+
+ .discount{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 4rem;
+  height: 2.5rem;
+  background: tomato;
+  color: aliceblue;
+  font-size: 0.8rem;
+  border-bottom-left-radius: 5px;
+ }
+
+ .price-box {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  font-size: 0.8rem;
+  text-align: center;
+ }
+
+ .box-gallery-img {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2rem;
+  margin-left: 2rem;
+  
+ }
+
+ .gallery-img {
+  width: 6rem;
+  height: 2rem;
+  border: 0.1px solid black;
  }

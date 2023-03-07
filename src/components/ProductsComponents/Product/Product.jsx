@@ -1,13 +1,14 @@
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../../context/ShoppingCartContex/ShoppingCartContext";
-
 import Tilt from "react-vanilla-tilt";
-
+import { v4 as uuidv4 } from 'uuid';
 
 import "./Product.css"
 
-export const Product = ({ id, img, title, price }) => {
+
+export const Product = ({ id, img, title, actualPrice, previousPrice }) => {
+	const discount = previousPrice - actualPrice;
 	const [cart, setCart] = useContext(CartContext);
 
 	const addToCart = () => {
@@ -22,7 +23,7 @@ export const Product = ({ id, img, title, price }) => {
 					}
 				});
 			} else {
-				return [...currentItems, { id, img, title, quantity: 1, price }]
+				return [...currentItems, { id, img, title, quantity: 1, actualPrice, previousPrice }]
 			}
 		});
 	};
@@ -51,30 +52,45 @@ export const Product = ({ id, img, title, price }) => {
 	const quantityPerItem = getProductsById(id)
 
 
+	// const [mainImg, setMainImg] = useState(img[0])
+	// const handleClick = (index) => {
+	// 	const slider = img[index];
+	// 	setMainImg(slider)
+	// }
+	
 	return (
 
 		<Tilt className="tilt__container" key={id}>
 			<div className="card p-0 card__container">
-				<img className="tilt__container-img" src={img} alt={title} />
-				<div className="card-body">
+				<p className="discount">- {(100 / (previousPrice / discount)).toFixed(2)}%</p>
+
+				<div>
+					<img key={uuidv4()} className="tilt__container-img" src={require(`../../../assets/imgs/${img}`)} alt={title} />
+				</div>
+
+				<div className="card-body w-100">
 					<h6 className="card-data">{title} || </h6>
-					<h6 className="card-data">Price: {price}€</h6>
+					<div className="price-box">
+
+						<span className="card-data fs-6"> Price: {actualPrice}€</span>
+						<span className="text-decoration-line-through">Previous Price: {previousPrice}€ </span>
+					</div>
 					<div className="d-flex justify-content-center card__buttons">
 						{
 							quantityPerItem === 0 ? (
 								<button className="btn btn-dark btn__product" onClick={() => addToCart()}>Buy</button>
-								): (
-									<button className="btn btn-secondary btn__product" onClick={() => addToCart()}>+</button>
-									)
+							) : (
+								<button className="btn btn-secondary btn__product" onClick={() => addToCart()}>+</button>
+							)
 						}
-									{quantityPerItem > 0 && <div>{quantityPerItem}</div>}
+						{quantityPerItem > 0 && <div>{quantityPerItem}</div>}
 
 						{
 							quantityPerItem > 0 && (
 								<button className="btn btn-secondary btn__product" onClick={() => removeItem(id)}>-</button>
 							)
 						}
-						
+
 					</div>
 				</div>
 			</div>
