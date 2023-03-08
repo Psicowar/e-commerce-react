@@ -5,14 +5,12 @@ import "./Header.css"
 const Header = () => {
   
   return (
-    
     <header>
         <nav className="header__box">
             <Logo />
             <NavBar />
         </nav>
     </header>
-
   )
 }
 

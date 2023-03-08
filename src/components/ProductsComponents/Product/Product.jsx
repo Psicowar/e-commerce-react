@@ -1,8 +1,7 @@
 
-import { useContext, useState } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../../../context/ShoppingCartContex/ShoppingCartContext";
 import Tilt from "react-vanilla-tilt";
-import { v4 as uuidv4 } from 'uuid';
 
 import "./Product.css"
 
@@ -10,6 +9,11 @@ import "./Product.css"
 export const Product = ({ id, img, title, actualPrice, previousPrice }) => {
 	const discount = previousPrice - actualPrice;
 	const [cart, setCart] = useContext(CartContext);
+
+	useEffect(() => {
+		const json = JSON.stringify(cart)
+		localStorage.setItem("cartItems", json)
+	}, [cart])
 
 	const addToCart = () => {
 		setCart((currentItems) => {
@@ -43,17 +47,16 @@ export const Product = ({ id, img, title, actualPrice, previousPrice }) => {
 			}
 		})
 	};
-	
-	const json = JSON.stringify(cart)
-	localStorage.setItem("cartItems", json)
+
+
 
 	const getProductsById = (id) => {
 		return cart.find((item) => item.id === id)?.quantity || 0;
 	};
 
 
-
 	const quantityPerItem = getProductsById(id)
+
 
 	return (
 
@@ -75,16 +78,16 @@ export const Product = ({ id, img, title, actualPrice, previousPrice }) => {
 					<div className="d-flex justify-content-center card__buttons">
 						{
 							quantityPerItem === 0 ? (
-								<button className="btn btn-dark btn__product" onClick={() => addToCart()}>Buy</button>
+								<button className="btn btn-dark btn__product" onClick={addToCart}>Buy</button>
 							) : (
-								<button className="btn btn-secondary btn__product" onClick={() => addToCart()}>+</button>
+								<button className="btn btn-secondary btn__product" onClick={addToCart}>+</button>
 							)
 						}
 						{quantityPerItem > 0 && <div>{quantityPerItem}</div>}
 
 						{
 							quantityPerItem > 0 && (
-								<button className="btn btn-secondary btn__product" onClick={() => removeItem(id)}>-</button>
+								<button className="btn btn-secondary btn__product" onClick={removeItem}>-</button>
 							)
 						}
 

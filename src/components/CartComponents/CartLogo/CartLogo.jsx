@@ -5,6 +5,8 @@ import cartLogoPng from "../../../assets/imgs/cart.png"
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../context/ShoppingCartContex/ShoppingCartContext";
+import {GiShoppingCart} from "react-icons/gi"
+import { FaRegUser } from "react-icons/fa";
 
 const Cart = () => {
 
@@ -17,8 +19,10 @@ const Cart = () => {
 	
 	return (
 
-		<div className="cart__logo">
-			<Link to="/cart"><img src={cartLogoPng} alt="Cart.png"/>{totalProducts}</Link>			
+		<div className="cart__logo bg-dark">
+			
+				<Link to="/cart"><GiShoppingCart className="cart_logo--icon" size={"2.4rem"}/><span className="cart_logo--quantity">{totalProducts}</span></Link>			
+			
 		</div>
 
 

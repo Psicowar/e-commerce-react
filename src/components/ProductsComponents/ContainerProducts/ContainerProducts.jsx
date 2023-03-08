@@ -1,18 +1,23 @@
 import { Product } from "../../ProductsComponents/Product/Product"
-// import { data } from "../../../assets/db/db"
 import "./ContainerProducts.css"
-import { useEffect, useState } from "react";
 import useData from "../../../hooks/UseData";
 import { ColorRing } from "react-loader-spinner";
+import { useSearchParams } from "react-router-dom";
 
 
 
 
 export const ContainerItem = () => {
-	const [searchValue, setSearchValue] = useState('');
+	const [searchParams, setSearchParams] = useSearchParams();
+	const queryParams = searchParams.get('q') ?? '';
+	const [products, isLoading, error] = useData(queryParams);
+	
 
-	const [products, isLoading, error] = useData(searchValue);
-
+	const handleChange = ({target}) => {
+		const {value} = target
+		setSearchParams({q: value})
+	}
+	
 
 	return (
 		<div className="container-fluid row row-cols-5 d-flex justify-content-center">
@@ -20,10 +25,9 @@ export const ContainerItem = () => {
 				<input
 					className="p-1 rounded"
 					type="text"
-					value={searchValue}
-					onChange={(e) => setSearchValue(e.target.value)}
+					value={queryParams}
+					onChange={handleChange}
 					placeholder='Look for skins...'
-
 				/>
 			</div>
 			{isLoading ? (
@@ -42,7 +46,7 @@ export const ContainerItem = () => {
 					})}
 				</>
 			)}
-			{error && <h1>Error</h1>}
+			{error && <h1>Error loading products</h1>}
 		</div>
 
 	)

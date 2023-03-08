@@ -2,9 +2,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 30vw;
+    width: 90%;
     padding: 1rem;
     align-items: center;
+    text-align: center;
+    
     
     
 }
@@ -36,10 +38,28 @@ div p {
     justify-content: space-between;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    width: 30vw;
+    width: 90%;
     border-top: 0.1px solid black;
 }
 
-.cart__btn-purchase{
-    margin: 1rem;
+.cart-buttons {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    gap: 2rem;
+
+}
+
+.cart__btn-purchase:hover{
+    background-color: mediumseagreen;
+}
+
+.cart__btn-delete:hover {
+    background: tomato;
+}
+
+
+
+.product__page--link:hover{
+    text-decoration: underline;
 }

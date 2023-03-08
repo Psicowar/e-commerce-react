@@ -1,7 +1,9 @@
-import "./NavBar.css"
+
 import Cart from "../../CartComponents/CartLogo/CartLogo"
 import { Link } from "react-router-dom"
 import IconUser from "./IconUser/IconUser"
+import { GrHomeRounded } from "react-icons/gr"
+import { IconContext } from "react-icons"
 
 
 const NavBar = () => {
@@ -9,7 +11,7 @@ const NavBar = () => {
     <>
       <Link to="/">Home</Link>
       <Link to="/products">Products</Link>
-      <Link to ="/login">{<IconUser/>}</Link>
+      <Link to="/login">{<IconUser />}</Link>
       <Cart />
     </>
   )

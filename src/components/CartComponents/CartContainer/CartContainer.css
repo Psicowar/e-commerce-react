@@ -28,7 +28,7 @@ section > div {
 
 .cart__component-box {
     padding: 1rem;
-    
+    width: 45vw;
 }
 
 .cart__component-box h6 {
