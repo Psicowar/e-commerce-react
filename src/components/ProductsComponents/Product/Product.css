@@ -10,6 +10,7 @@
     backdrop-filter: blur(5px) !important;
     padding: 0 !important;
     background: none !important;
+    height: 25rem!important;
   }
 
 
@@ -31,6 +32,13 @@
 
   .btn__product {
     margin: 1.5rem;
+    transition: 0.2s ease-in-out;
+  }
+
+  .btn__product:hover {
+    transform: scale(1.1);
+    color: #212529;
+    cursor: pointer;
   }
 
   .card__buttons {

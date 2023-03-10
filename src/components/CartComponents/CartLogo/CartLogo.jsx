@@ -1,12 +1,11 @@
 
 import "./CartLogo.css"
-
-import cartLogoPng from "../../../assets/imgs/cart.png"
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../context/ShoppingCartContex/ShoppingCartContext";
 import {GiShoppingCart} from "react-icons/gi"
-import { FaRegUser } from "react-icons/fa";
+
+
 
 const Cart = () => {
 

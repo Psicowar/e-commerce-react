@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function useData(params) {
+function useData() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -24,23 +24,6 @@ function useData(params) {
     fetchData();
   }, []);
 
-
-  useEffect(() => {
-    const fetchData = async () => {
-        try {
-          setTimeout(async () => {
-            const response = await fetch(`http://localhost:3002/data/?q=${params}`)
-            const data = await response.json();
-            setProducts(data);
-          }, 1000)
-        } catch (error) {
-          setError(error);
-        }
-      }
-
-    params.length > 3 && fetchData();
-    params.length === 0 && fetchData();
-  }, [params]);
 
 
   return [products, isLoading, error];

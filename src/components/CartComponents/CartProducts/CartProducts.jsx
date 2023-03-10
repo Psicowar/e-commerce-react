@@ -2,6 +2,9 @@ import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../../context/ShoppingCartContex/ShoppingCartContext";
 import "./CartProducts.css"
+import { MdOutlineAddShoppingCart } from "react-icons/md"
+import { FiPlusCircle, FiMinusCircle } from "react-icons/fi"
+import { toast } from "react-toastify";
 
 
 
@@ -10,13 +13,13 @@ export const CartProducts = () => {
 	const totalProducts = cart.reduce((accumulator, currentProduct) => {
 		return accumulator + currentProduct.quantity;
 	}, 0)
-	
+
 	useEffect(() => {
 		const json = JSON.stringify(cart)
 		localStorage.setItem("cartItems", json)
 	}, [cart])
 
-	
+
 	const totalPrice = cart.reduce((accumulator, currentProduct) => {
 		return accumulator + currentProduct.quantity * currentProduct.actualPrice;
 	}, 0)
@@ -57,9 +60,10 @@ export const CartProducts = () => {
 
 	const handleDeleteAll = () => {
 		setCart([])
+		toast.success("All products deleted!")
 	}
 
-
+	console.log(cart)
 
 	return (
 		<>
@@ -70,13 +74,12 @@ export const CartProducts = () => {
 						<>
 							{cart.map((item) => {
 								return (
-
 									<div className="cart__box " key={item.id}>
 										<img src={require(`../../../assets/imgs/${item.img}`)} alt={item.title} />
 										<span>{item.title}</span>
-										<button className="btn btn-secondary" onClick={() => addToCart(item.id)}>+</button>
+										<FiPlusCircle onClick={() => addToCart(item.id)} className="btn__product" size={30}/>
 										<span>{item.quantity}</span>
-										<button className="btn btn-secondary" onClick={() => removeItem(item.id)}>-</button>
+										<FiMinusCircle onClick={() => removeItem(item.id) } className="btn__product" size={30}/>
 										{
 											item.quantity === 1 ?
 												<span>Price: {item.actualPrice.toFixed(2)}€</span>
@@ -100,7 +103,12 @@ export const CartProducts = () => {
 							</div>
 						</>
 					)
-					: <span>Empty cart go back to: <Link to="/products"><span className="product__page--link">Products</span></Link></span>
+					: (
+						<>
+							<MdOutlineAddShoppingCart size={300} color="#212529" className="m-4"/>
+							<span className="fs-4">Empty cart, go back to: <Link to="/products"><span className="product__page--link">Products</span></Link></span>
+						</>
+					)
 			}
 
 		</>
