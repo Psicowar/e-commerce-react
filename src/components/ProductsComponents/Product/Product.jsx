@@ -1,20 +1,34 @@
 
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../../context/ShoppingCartContex/ShoppingCartContext";
 import Tilt from "react-vanilla-tilt";
 import "./Product.css"
 import { toast } from "react-toastify";
 import { FiPlusCircle, FiMinusCircle } from "react-icons/fi"
+import { FavouritesContext } from "../../../context/FavouritesContext/FavouritesContext";
+import { MdFavoriteBorder } from "react-icons/md"
 
 
 export const Product = ({ id, img, title, actualPrice, previousPrice }) => {
 	const discount = previousPrice - actualPrice;
 	const [cart, setCart] = useContext(CartContext);
+	const [favourites, setFavourites] = useContext(FavouritesContext);
+	const [favOn, setFavOn] = useState(false)
+
 
 	useEffect(() => {
 		const json = JSON.stringify(cart)
 		localStorage.setItem("cartItems", json)
 	}, [cart])
+
+	useEffect(() => {
+		const favItems = favourites.find((item) => item.id === id)
+		if(favItems) {
+			setFavOn(true)
+		}
+		const json = JSON.stringify(favourites)
+		localStorage.setItem("favItems", json)
+	}, [favourites])
 
 	const addToCart = () => {
 		setCart((currentItems) => {
@@ -48,11 +62,29 @@ export const Product = ({ id, img, title, actualPrice, previousPrice }) => {
 						return { ...item, quantity: item.quantity - 1 };
 					} else {
 						return item;
-					}
-				})
-			}
-		})
+					};
+				});
+			};
+		});
 	};
+
+	const addToFavourites = (product) => {
+		const favItems = favourites.find((item) => item.id === id);
+		if(!favItems) {
+			setFavourites([...favourites, product])
+			setFavOn(true)
+			toast.success("Added to favorites")
+		} else {
+			const currentItem = favourites.filter((item) => item.id !== id)
+			setFavourites(currentItem)
+			setFavOn(false)
+			toast.success("Remove from favorites")
+		}
+		
+	}
+
+
+
 
 
 
@@ -86,7 +118,7 @@ export const Product = ({ id, img, title, actualPrice, previousPrice }) => {
 							quantityPerItem === 0 ? (
 								<button className="btn btn-dark btn__product fs-6" onClick={addToCart}>Buy</button>
 							) : (
-								<FiPlusCircle onClick={addToCart} className="btn__product" size={30}/>
+								<FiPlusCircle onClick={addToCart} className="btn__product" size={30} />
 							)
 						}
 
@@ -95,9 +127,17 @@ export const Product = ({ id, img, title, actualPrice, previousPrice }) => {
 						}
 
 						{
-							quantityPerItem > 0 && <FiMinusCircle onClick={() => removeItem(id)} className="btn__product" size={30}/>
+							quantityPerItem > 0 && <FiMinusCircle onClick={() => removeItem(id)} className="btn__product" size={30} />
 						}
+						{
+							favOn ? 
 
+							<MdFavoriteBorder className="btn__favourites--on" onClick={() => addToFavourites({ id, title, img, actualPrice, previousPrice })} size={20} />
+							: 
+
+							<MdFavoriteBorder className="btn__favourites--off" onClick={() => addToFavourites({ id, title, img, actualPrice, previousPrice })} size={20} />
+						}
+						
 					</div>
 				</div>
 			</div>

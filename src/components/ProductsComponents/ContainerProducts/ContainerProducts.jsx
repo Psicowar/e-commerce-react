@@ -4,16 +4,17 @@ import useData from "../../../hooks/UseData";
 import { ColorRing } from "react-loader-spinner";
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
-
+import { useAuthUser } from "../../../context/AuthUserContext/AuthUserContext";
 
 
 
 export const ContainerItem = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
-
 	const queryParams = searchParams.get('q') ?? '';
 	const [products, isLoading, error] = useData();
-	const [filterSearch, setFilterSearch] = useState("")
+	const [filterSearch, setFilterSearch] = useState("");
+	
+	
 
 	
 

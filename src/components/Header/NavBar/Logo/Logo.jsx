@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import imgPng from "../../../assets/imgs/CSGO.png"
+import imgPng from "../../../../assets/imgs/CSGO.png"
 import "./Logo.css"
 const Logo = () => {
   return (

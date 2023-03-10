@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useMemo, useReducer } from "react";
+import { toast } from "react-toastify";
 
 const authUserContext = createContext();
 
@@ -6,20 +7,23 @@ export const useAuthUser = () => {
 	return useContext(authUserContext)
 }
 
-const init = () => {
-	const dataFromLocalStorage = JSON.parse(localStorage.getItem("userAuth"))
-	return {
-		dataFromLocalStorage:!! dataFromLocalStorage
-	}
-}
+const dataFromLocalStorage = JSON.parse(localStorage.getItem("userAuth"))
+
 
 export const AuthUserProvider = ({ children }) => {
-	const initialValue = { username: "", password: "", error: "" }
+
+	const initialValue = { 
+		username: dataFromLocalStorage ? dataFromLocalStorage.username : " ", 
+		password: dataFromLocalStorage ? dataFromLocalStorage.password : " ",
+		isAuthenticated: dataFromLocalStorage ? true : false,
+		error: "" 
+	}
 
 	const ACTIONS = {
 		LOG_IN_SUCCES: "LOGIN_SUCCES",
 		LOG_IN_ERROR: "LOGIN_ERROR",
 		LOG_OUT_SUCCES: "LOG_OUT"
+
 	}
 
 
@@ -29,7 +33,8 @@ export const AuthUserProvider = ({ children }) => {
 				return {
 					username: action.payload.username,
 					password: action.payload.password,
-					error: ""
+					error: "",
+					isAuthenticated: true
 				};
 			case ACTIONS.LOG_IN_ERROR:
 				return {
@@ -44,12 +49,13 @@ export const AuthUserProvider = ({ children }) => {
 			default: return state
 		}
 	}
-
+	
 	const [authState, dispatch] = useReducer(reducer, initialValue)
 
 	const logInSucces = useCallback((username, password) => {
 		dispatch({ type: ACTIONS.LOG_IN_SUCCES, payload: { username, password } })
 		localStorage.setItem("userAuth", JSON.stringify({ username, password }) )
+		toast.success("Logged successfully!")
 	}, [])
 
 	const logInError = useCallback(() => {
@@ -57,8 +63,9 @@ export const AuthUserProvider = ({ children }) => {
 	}, [])
 
 	const logOutSucces = useCallback(() => {
-		dispatch({ type: ACTIONS.LOG_OUT_SUCCES })
 		localStorage.removeItem("userAuth")
+		dispatch({ type: ACTIONS.LOG_OUT_SUCCES })
+		toast.success("Logged off successfully!")
 	}, [])
 
 
@@ -69,7 +76,7 @@ export const AuthUserProvider = ({ children }) => {
 		logOutSucces
 	}), [authState, logInSucces, logInError, logOutSucces])
 
-
+	
 	return <authUserContext.Provider value={dataAuth}>{children}</authUserContext.Provider>
 
 

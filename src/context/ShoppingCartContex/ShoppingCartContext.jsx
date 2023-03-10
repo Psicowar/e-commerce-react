@@ -7,8 +7,7 @@ export const ShoppingCartProvider = ({ children }) => {
 	
 	const [cart, setCart] = useState(
 		getDataLocalStorage ? JSON.parse(getDataLocalStorage) : []
-
-
+		
 	);
 	return <CartContext.Provider value={[cart, setCart]}>{children}</CartContext.Provider>
 

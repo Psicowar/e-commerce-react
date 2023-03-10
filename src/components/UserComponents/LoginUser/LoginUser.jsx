@@ -1,11 +1,13 @@
 
 import "./LoginUser.css"
-import { useAuthUser } from "../../context/AuthUserContext/AuthUserContext";
+import { useAuthUser } from "../../../context/AuthUserContext/AuthUserContext";
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const LoginUser = () => {
-
-	const { authState, logInSucces, logInError, logOutSucces } = useAuthUser();
+	const navigate = useNavigate()
+	const {logInSucces, logInError } = useAuthUser();
 	const [form, setForm] = useState({username: "", password: ""})
 
 	const handleLogin = (e) => {
@@ -16,8 +18,9 @@ const LoginUser = () => {
 		}
 		if(form.username === uniqueUser.username && form.password === uniqueUser.password) {
 			logInSucces(form.username, form.password)
+			navigate("/")
 		} else {
-			logInError()
+			logInError(toast.error("Wrong Credentials"))
 		}
 	}
 
@@ -41,7 +44,6 @@ const LoginUser = () => {
 				</div>
 				<div className="d-grid gap-4 mt-3">
 					<button type="submit" className="btn btn-primary ">Login</button>
-					<button type="submit" className="btn btn-primary">Register</button>
 				</div>
 			</form>
 		</main>
