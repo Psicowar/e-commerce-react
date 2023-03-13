@@ -7,9 +7,16 @@ As well as the concept of separation of concerns, and different types of practic
 
 ## Media
 
+### Product page
 ![products](src/assets/imgs/products.JPG)
-![description](src/assets/imgs/description.JPG)
+
+### Detail page
+![Detail](src/assets/imgs/description.JPG)
+
+### Favorites page
 ![favorites](src/assets/imgs/favorites.JPG)
+
+### Cart page
 ![cart](src/assets/imgs/cart.JPG)
 
 
