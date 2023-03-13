@@ -32,7 +32,7 @@ const LoginUser = () => {
 	return (
 		<main>
 			<form className="form__login" onSubmit={handleLogin}>
-				<h3 className="pb-5 d-flex justify-content-center">Login</h3>
+				<h3 className="pb-3 d-flex justify-content-center">Login</h3>
 				<div className="mb-5">
 					<label htmlFor="exampleInputEmail1" className="form-label">User</label>
 					<input type="text" name="username" value={form.username} className="form-control" onChange={handleChange} />
@@ -43,7 +43,7 @@ const LoginUser = () => {
 					<input type="password" name="password" value={form.password} className="form-control" onChange={handleChange} />
 				</div>
 				<div className="d-grid gap-4 mt-3">
-					<button type="submit" className="btn btn-primary ">Login</button>
+					<button type="submit" className="btn btn-dark text-white ">Login</button>
 				</div>
 			</form>
 		</main>

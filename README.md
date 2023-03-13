@@ -4,6 +4,15 @@
 This project has implemented the use of predefined react hooks, such as useState, useEffect, useContext, useReducer etc... .
 As well as the concept of separation of concerns, and different types of practices to maintain the best possible order.
 
+
+## Media
+
+![products](src/assets/imgs/products.JPG)
+![description](src/assets/imgs/description.JPG)
+![favorites](src/assets/imgs/favorites.JPG)
+![cart](src/assets/imgs/cart.JPG)
+
+
 ### Prerequisites
 
 In the project directory, you can run:
@@ -12,6 +21,7 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
 
 ## `npm run api-weapons`
 
