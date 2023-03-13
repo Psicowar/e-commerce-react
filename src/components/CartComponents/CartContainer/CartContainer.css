@@ -23,11 +23,41 @@ section > div {
 
 .cart__component-box {
     padding: 1rem;
-    width: 45vw;
+    width: 55vw;
 }
 
-.cart__component-box h6 {
-    font-size: 1.4rem;
-    margin: 0;
+
+.cart-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    width: 90%;
+    border-top: 0.1px solid black;
     
+}
+
+.cart-buttons {
+   display: flex;
+   gap: 1rem
+}
+
+.cart__btn-purchase:hover{
+    background-color: mediumseagreen;
+}
+
+.cart__btn-delete:hover {
+    background: tomato;
+}
+
+
+.product__page--link:hover{
+    text-decoration: underline;
+}
+
+.cart__empty-box {
+    min-height: 100vh;
+    color: aliceblue;
 }

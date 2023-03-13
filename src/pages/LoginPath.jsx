@@ -1,10 +1,7 @@
 import LoginUser from "../components/LoginUser/LoginUser"
 
-
 function Login() {
-    return (
-        <LoginUser />
-    )
+    return <LoginUser />
 }
 
 export default Login

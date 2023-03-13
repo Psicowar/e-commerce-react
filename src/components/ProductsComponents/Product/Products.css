@@ -93,14 +93,16 @@
   border: 0.1px solid black;
  }
 
- .btn__favourites--on {
+ .btn__favorites--on {
   color: tomato;
+  cursor: pointer;
+  
  }
 
- .btn__favourites:hover {
+
+ .btn__favorites--off {
   transform: scale(1.3);
+  color:palegreen;
+  cursor: pointer;
  }
 
- .btn__favourites--off {
-  color:palegreen;
- }

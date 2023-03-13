@@ -1,44 +1,36 @@
-import { Product } from "../../ProductsComponents/Product/Product"
+import { Product } from "../Product/Products"
 import "./ContainerProducts.css"
 import useData from "../../../hooks/UseData";
 import { ColorRing } from "react-loader-spinner";
 import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
-import { useAuthUser } from "../../../context/AuthUserContext/AuthUserContext";
+
 
 
 
 export const ContainerItem = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
-	const queryParams = searchParams.get('q') ?? '';
 	const [products, isLoading, error] = useData();
-	const [filterSearch, setFilterSearch] = useState("");
-	
-	
+	const queryParams = searchParams.get('q') ?? "";
 
-	
+
 
 	const handleChange = ({ target }) => {
 		const { value } = target
 		setSearchParams({ q: value })
-		setFilterSearch(value)
 	}
 
-	let filterItems = []
-	if (filterSearch.length > 0) {
-		filterItems = [...products].filter(product => product.title.toLowerCase().includes(filterSearch.toLowerCase()))
-	}
 
 
 	return (
-		
+
 		<>
 			<div className="container__search">
 				<div className="container__input">
 					<input
 						className="p-1 rounded"
 						type="text"
-						value={filterSearch}
+						name="filter"
+						value={queryParams}
 						onChange={handleChange}
 						placeholder='Look for skins...'
 					/>
@@ -56,15 +48,18 @@ export const ContainerItem = () => {
 					</div>
 				) : (
 					<>
-						{	
-							filterItems.length !== 0 ? (
-								filterItems.map(product => {
-									return <Product key={product.id} {...product} product={product} />})
-							) : (
-								products.map(product => {
+						{
+							products
+								.filter(({ title }) => {
+									if (!queryParams) return true
+									else {
+										const titleToLowerCase = title.toLowerCase()
+										return titleToLowerCase.includes(queryParams.toLowerCase())
+									}
+								})
+								.map(product => {
 									return <Product key={product.id} {...product} product={product} />
 								})
-							)
 						}
 					</>
 				)}

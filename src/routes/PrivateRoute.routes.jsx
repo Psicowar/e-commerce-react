@@ -4,7 +4,6 @@ import { useAuthUser } from '../context/AuthUserContext/AuthUserContext'
 
 const PrivateRoute = ({children}) => {
     const {authState} = useAuthUser()
-
     return authState.isAuthenticated ? children : <Navigate to = "/" />
 }
 
