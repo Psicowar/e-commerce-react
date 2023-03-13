@@ -8,7 +8,6 @@ import {GiShoppingCart} from "react-icons/gi"
 
 
 const Cart = () => {
-
 	const [cart] = useContext(CartContext);
 
 	
