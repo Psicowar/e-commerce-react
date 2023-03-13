@@ -41,10 +41,10 @@ export const CartContainer = () => {
 							<h6 className="m-0">Total units: {totalProducts}</h6>
 							<h6 className="m-0">Total price: {totalPrice.toFixed(2)}€</h6>
 							<div className="cart-buttons">
-								<button className="btn btn-dark cart__btn-purchase">
+								<button className="btn btn-outline-success text-white cart__btn-purchase">
 									Confirm Purchase
 								</button>
-								<button className="btn btn-dark cart__btn-delete" onClick={onDeleteAll}>
+								<button className="btn btn-outline-danger text-white cart__btn-delete" onClick={onDeleteAll}>
 									Clean car
 								</button>
 							</div>
@@ -55,7 +55,7 @@ export const CartContainer = () => {
 			) : (
 				<div className="cart__empty-box d-flex justify-content-center align-items-center flex-column">
 					<MdOutlineAddShoppingCart size={300} color="#f0f8ff" className="m-4" />
-					<span className="fs-4">Empty cart, go back to: <Link to="/products"><span className="product__page--link">Products</span></Link></span>
+					<span className="fs-4">Empty cart, go back to: <Link to="/"><span className="product__page--link">Products</span></Link></span>
 				</div>
 			)
 

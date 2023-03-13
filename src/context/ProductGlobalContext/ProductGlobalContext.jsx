@@ -18,7 +18,6 @@ export function GlobalProductProvider({ children }) {
         const data = await response.json();
         setProducts(data);
         setIsLoading(false);
-
       } catch (error) {
         setError(error);
       }

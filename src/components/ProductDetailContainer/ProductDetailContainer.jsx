@@ -34,7 +34,7 @@ const ProductDetailContainer = () => {
 					<h5><strong >Type:</strong> {product.type}</h5>
 					<h5 className="m-4">Name: {product.title} </h5>
 					<p name="product_description" id={product.id} cols="30" rows="10"><strong>Description:</strong> {product.description}</p>
-					<span className="fs-4">Go back to: <Link to="/products"><span className="product__page--acces">Products</span></Link></span>
+					<span className="fs-4">Go back to: <Link to="/"><span className="product__page--acces">Products</span></Link></span>
 				</div>
 			</div>
 

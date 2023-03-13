@@ -44,9 +44,7 @@ section > div {
    gap: 1rem
 }
 
-.cart__btn-purchase:hover{
-    background-color: mediumseagreen;
-}
+
 
 .cart__btn-delete:hover {
     background: tomato;

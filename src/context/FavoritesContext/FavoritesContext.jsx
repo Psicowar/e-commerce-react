@@ -17,4 +17,5 @@ export const FavoritesContextProvider = ({ children }) => {
 			{children}
 		</FavoritesContext.Provider>
 	)
+	
 };

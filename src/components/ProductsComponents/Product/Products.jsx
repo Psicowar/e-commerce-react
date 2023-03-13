@@ -10,7 +10,7 @@ import { MdFavoriteBorder } from "react-icons/md"
 import { Link } from "react-router-dom";
 
 
-export const Product = (product) => {
+export const Product = ({product}) => {
 	const { id, title, img, previousPrice, actualPrice } = product
 	const [cart, setCart, addToCart, removeFromCart] = useContext(CartContext);
 	const [favorites, setFavorites] = useContext(FavoritesContext);

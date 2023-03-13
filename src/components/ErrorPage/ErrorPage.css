@@ -1,0 +1,30 @@
+.error__text {
+    font-size: 3rem;
+    color: aliceblue;
+}
+
+.url__text {
+    font-size: 2rem;
+    color: aliceblue;
+}
+
+.error__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30rem;
+    width: 30rem;
+}
+
+.error__page--link:hover {
+    text-decoration: underline;
+}
+
+.error__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 1rem;
+}

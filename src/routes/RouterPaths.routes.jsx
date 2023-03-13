@@ -5,12 +5,12 @@ import Header from '../components/Header/Header'
 import Logo from '../components/Header/NavBar/Logo/Logo'
 import LoginUser from '../components/UserComponents/LoginUser/LoginUser'
 import CartPath from '../pages/CartPath'
-import Home from '../pages/HomePath'
 import Products from '../pages/ProductsPath'
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './PrivateRoute.routes'
 import FavoritePage from '../pages/FavoritePage'
 import DetailPath from '../pages/DetailPath'
+import ErrorPath from '../pages/ErrorPath'
 
 
 
@@ -19,10 +19,8 @@ const RouterPaths = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path='/' element={< Home />} />
-        <Route path='/' element={< Logo />} />
-        <Route path='/products' element={<Products />}/>
-        <Route path='/products/:title' element={<DetailPath />}/>
+        <Route index path='/' element={<Products />}/>
+        <Route path='/:title' element={<DetailPath />}/>
         <Route path='/favorites' element={
           <PrivateRoute>
             <FavoritePage />
@@ -30,7 +28,7 @@ const RouterPaths = () => {
         } />
         <Route path='/login' element={<LoginUser />} />
         <Route path='/cart' element={<CartPath />} />
-        <Route path='*' element={<Navigate to="/" />} />
+        <Route path='*' element={<ErrorPath/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>

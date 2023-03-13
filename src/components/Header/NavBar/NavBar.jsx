@@ -11,8 +11,7 @@ const NavBar = () => {
   const { authState } = useAuthUser()
   return (
     <>
-      <Link to="/"><span className="home-access">Home</span></Link>
-      <Link to="/products"><span className="products-access">Products</span></Link>
+      <Link to="/"><span className="products-access">Products</span></Link>
       {
         authState.isAuthenticated ?
           <>

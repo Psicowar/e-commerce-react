@@ -11,7 +11,6 @@ import { FavoritesContext } from "../../../../context/FavoritesContext/Favorites
 const FavoritesContainer = () => {
     const [favorites, setFavorites] = useContext(FavoritesContext);
 
-    
  
 
     const handleDeleteAll = () => {
