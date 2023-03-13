@@ -35,6 +35,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 Runs the fake API with json-server to launch the db .\
 Open [http://localhost:3002](http://localhost:3002) to view it in your browser.
 
+### User for login
+user: dayan
+password: dayan
+
 
 ### Project Description
 
