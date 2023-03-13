@@ -1,24 +1,44 @@
-import React from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { ColorRing } from 'react-loader-spinner';
 import { Link, useParams } from 'react-router-dom';
+import { GlobalProductContext } from '../../context/ProductGlobalContext/ProductGlobalContext';
 import './ProductDetailContainer.css';
-import products from '../../assets/api/db2.json';
+
 const ProductDetailContainer = () => {
 	const { title: productTitle } = useParams()
-	const { id, title, img, description, type } = products.find((product) => {
-		return product.title === productTitle
-	})
+	const [product, setProduct]   = useState()
+	const { products, isLoading } = useContext(GlobalProductContext)
+	useEffect(() => {		
+		if (!isLoading) {
+			const result = products.find((item) => item.title === productTitle)
+			setProduct(result)
+		}
+	}, [isLoading])
+
 	return (
-		<div className='detail__container m-3'>
-			<div className="detail__box " key={id}>
+		!product ?
+			(
+				<div className='loading-box'>
+					<ColorRing
+						height='100'
+						width='100'
+						wrapperClassName='loading-circle'
+						colors={['#5d79ae', '#0c0f12', '#ccba7c', '#413a27', '#de9b35']}
+					/>
+				</div>
+			) :
 
-					<img className="tilt__container-img" src={require(`../../assets/imgs/${img}`)} alt={title} />
-					<h5><strong >Type:</strong> {type}</h5>
-					<h5 className="m-4">Name: {title} </h5>
-					<p name="product_description" id={id} cols="30" rows="10"><strong>Description:</strong> {description}</p>
+			<div className='detail__container m-3'>
+				<div className="detail__box " key={product.id}>
+					<img className="tilt__container-img" src={require(`../../assets/imgs/${product.img}`)} alt={product.title} />
+					<h5><strong >Type:</strong> {product.type}</h5>
+					<h5 className="m-4">Name: {product.title} </h5>
+					<p name="product_description" id={product.id} cols="30" rows="10"><strong>Description:</strong> {product.description}</p>
 					<span className="fs-4">Go back to: <Link to="/products"><span className="product__page--acces">Products</span></Link></span>
-
+				</div>
 			</div>
-		</div>
+
+
 	)
 
 

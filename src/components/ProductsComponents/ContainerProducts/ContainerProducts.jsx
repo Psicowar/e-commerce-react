@@ -1,18 +1,18 @@
 import { Product } from "../Product/Products"
 import "./ContainerProducts.css"
-import useData from "../../../hooks/UseData";
+import { GlobalProductContext } from "../../../context/ProductGlobalContext/ProductGlobalContext";
 import { ColorRing } from "react-loader-spinner";
 import { useSearchParams } from "react-router-dom";
+import { useContext, useEffect } from "react";
 
 
 
 
 export const ContainerItem = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [products, isLoading, error] = useData();
 	const queryParams = searchParams.get('q') ?? "";
-
-
+	const {products, isLoading, error} = useContext(GlobalProductContext)
+	
 
 	const handleChange = ({ target }) => {
 		const { value } = target
@@ -24,6 +24,7 @@ export const ContainerItem = () => {
 	return (
 
 		<>
+		
 			<div className="container__search">
 				<div className="container__input">
 					<input
@@ -48,7 +49,9 @@ export const ContainerItem = () => {
 					</div>
 				) : (
 					<>
+						
 						{
+							
 							products
 								.filter(({ title }) => {
 									if (!queryParams) return true
