@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ColorRing } from 'react-loader-spinner';
 import { Link, useParams } from 'react-router-dom';
 import { GlobalProductContext } from '../../context/ProductGlobalContext/ProductGlobalContext';
@@ -13,7 +13,7 @@ const ProductDetailContainer = () => {
 			const result = products.find((item) => item.title === productTitle)
 			setProduct(result)
 		}
-	}, [isLoading])
+	}, [isLoading, productTitle, products])
 
 	return (
 		!product ?

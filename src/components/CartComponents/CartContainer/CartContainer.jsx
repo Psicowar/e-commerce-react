@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 import { CartContext } from "../../../context/ShoppingCartContex/ShoppingCartContext";
 import { CartProducts } from "../CartProducts/CartProducts";
 import "./CartContainer.css"
+
+
 export const CartContainer = () => {
 	const [cart, setCart] = useContext(CartContext);
 
@@ -25,6 +27,8 @@ export const CartContainer = () => {
 		localStorage.setItem("cartItems", json)
 	}, [cart])
 
+
+
 	return (
 
 		cart.length > 0
@@ -37,9 +41,9 @@ export const CartContainer = () => {
 							})
 						}
 						<div className="cart-total">
-							<h6 className="m-0">Total products: {cart.length}</h6>
-							<h6 className="m-0">Total units: {totalProducts}</h6>
-							<h6 className="m-0">Total price: {totalPrice.toFixed(2)}€</h6>
+							<h6 className="m-0 fs-4">Total products: {cart.length}</h6>
+							<h6 className="m-0 fs-4">Total units: {totalProducts}</h6>
+							<h6 className="m-0 fs-4">Total price: {totalPrice.toFixed(2)}€</h6>
 							<div className="cart-buttons">
 								<button className="btn btn-outline-success text-white cart__btn-purchase">
 									Confirm Purchase
